@@ -1,0 +1,29 @@
+@model AspNetClientFastApi.Models.Actor
+
+@{
+    ViewData["Title"] = "Détails";
+}
+
+<!-- Container centré avec carte stylée -->
+<div class="container mt-5">
+    <div class="card mx-auto shadow" style="max-width: 600px; border-radius: 1.5rem; box-shadow: 0 4px 12px rgba(0, 123, 255, 0.2);">
+        
+        <!-- Image de l’acteur avec arrondis en haut -->
+        <img src="@Model.Picture" 
+             class="card-img-top" 
+             alt="@Model.Name" 
+             style="object-fit: cover; height: 300px; border-top-left-radius: 1.5rem; border-top-right-radius: 1.5rem;">
+        
+        <!-- Contenu texte -->
+        <div class="card-body text-center">
+            <h3 class="card-title fw-bold">@Model.Name</h3>
+            <p class="card-text text-muted">@Model.Bio</p>
+        </div>
+
+        <!-- Boutons d’action -->
+        <div class="card-footer text-center bg-white" style="border-bottom-left-radius: 1.5rem; border-bottom-right-radius: 1.5rem;">
+            <a asp-controller="Actors" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-outline-warning btn-sm me-2">Modifier</a>
+            <a asp-controller="Actors" asp-action="Index" class="btn btn-outline-secondary btn-sm">Retour</a>
+        </div>
+    </div>
+</div>

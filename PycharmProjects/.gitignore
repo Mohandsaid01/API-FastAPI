@@ -1,0 +1,22 @@
+# Ignorer dossiers courants
+**/bin/
+**/obj/
+**/__pycache__/
+**/venv/
+**/.idea/
+**/.vscode/
+**/.pytest_cache/
+**/.DS_Store
+**/env/
+*.log
+*.db
+*.sqlite
+*.pyc
+
+# Ignorer les fichiers utilisateurs VS
+*.user
+*.suo
+
+# Ignorer les dépendances de libman ou npm si présents
+wwwroot/lib/
+node_modules/

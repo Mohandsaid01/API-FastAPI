@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestion des Acteurs</title>
+    <style>
+        /* RESET */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(to right, #0f0f0f, #1c1c1c);
+            color: #f9f9f9;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 30px;
+            color: gold;
+            text-shadow: 2px 2px 5px black;
+        }
+
+        .form-container {
+            background: #222;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 600px;
+            margin: 0 auto 40px auto;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+        }
+
+        .form-container h2 {
+            margin-bottom: 15px;
+            color: #f2f2f2;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #444;
+            border-radius: 5px;
+            background: #111;
+            color: #fff;
+        }
+
+        input:focus {
+            outline: 2px solid gold;
+        }
+
+        button {
+            padding: 10px 15px;
+            background-color: gold;
+            color: black;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-right: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+
+        button:hover {
+            background-color: #d4af37;
+        }
+
+        .list-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .acteur {
+            background: #1e1e1e;
+            border-radius: 10px;
+            width: 280px;
+            padding: 15px;
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .acteur:hover {
+            transform: scale(1.03);
+        }
+
+        .acteur h3 {
+            color: gold;
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+
+        .acteur p {
+            color: #ccc;
+            font-size: 14px;
+            margin-bottom: 10px;
+            height: 60px;
+            overflow: auto;
+        }
+
+        .acteur img {
+            max-width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .acteur button {
+            width: 100px;
+            margin: 5px;
+        }
+
+        .acteur button:last-child {
+            background-color: #f44336;
+            color: white;
+        }
+
+        .acteur button:last-child:hover {
+            background-color: #cc0000;
+        }
+
+        @media (max-width: 768px) {
+            .form-container, .acteur {
+                width: 90%;
+            }
+
+            .acteur img {
+                height: 180px;
+            }
+
+            .acteur h3 {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>CRUD Acteurs avec FastAPI</h1>
+
+    <div class="form-container">
+        <h2>Ajouter ou modifier un acteur</h2>
+        <form id="acteur-form">
+            <input type="text" id="name" placeholder="Nom de l’acteur" required>
+            <input type="text" id="bio" placeholder="Biographie" required>
+            <input type="text" id="picture" placeholder="Image URL" required>
+            <button type="submit">Enregistrer</button>
+            <button type="button" id="cancel-edit">Annuler</button>
+        </form>
+    </div>
+
+    <div class="form-container">
+        <h2>🔎 Rechercher un acteur par ID</h2>
+        <form id="search-form">
+            <input type="number" id="search-id" placeholder="Entrez un ID" required>
+            <button type="submit">Rechercher</button>
+            <button type="button" onclick="fetchActeurs()">Réinitialiser</button>
+        </form>
+    </div>
+
+    <hr>
+
+    <div id="acteurs-container" class="list-container"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>

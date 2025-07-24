@@ -1,0 +1,55 @@
+@model IEnumerable<Actor>
+
+@{
+    ViewData["Title"] = "Liste des Acteurs";
+}
+
+<h2 class="text-center my-4 fw-bold">Liste des Acteurs</h2>
+
+<!--  Barre de recherche d'acteur par ID (GET) -->
+<div class="container mb-4">
+    <form asp-controller="Actors" asp-action="Search" method="get" class="row g-2 justify-content-center">
+        <div class="col-auto">
+            <input type="number" name="id" class="form-control" placeholder="Rechercher un acteur par ID" min="1" required />
+        </div>
+        <div class="col-auto">
+            <button type="submit" class="btn btn-primary">Rechercher</button>
+        </div>
+    </form>
+</div>
+
+<!-- Grille responsive d'acteurs -->
+<div class="container">
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+        @foreach (var actor in Model)
+        {
+            <div class="col">
+                <div class="card h-100 shadow" 
+                     style="border-radius: 1.5rem; box-shadow: 0 4px 12px rgba(0, 123, 255, 0.25);">
+                    
+                    <!--  Image de l’acteur -->
+                    <img src="@actor.Picture" 
+                         class="card-img-top" 
+                         alt="@actor.Name" 
+                         style="height: 200px; object-fit: cover; border-top-left-radius: 1.5rem; border-top-right-radius: 1.5rem;">
+                    
+                    <!--  Infos principales -->
+                    <div class="card-body">
+                        <h5 class="card-title">@actor.Name</h5>
+                        <p class="card-text text-muted">@actor.Bio</p>
+                    </div>
+
+                    <!-- 🔘 Boutons actions -->
+                    <div class="card-footer d-flex justify-content-between">
+                        <a asp-controller="Actors" asp-action="Details" asp-route-id="@actor.Id" class="btn btn-sm btn-outline-info">Détails</a>
+                        <a asp-controller="Actors" asp-action="Edit" asp-route-id="@actor.Id" class="btn btn-sm btn-outline-secondary">Modifier</a>
+
+                        <form asp-controller="Actors" asp-action="Delete" asp-route-id="@actor.Id" method="post" class="d-inline" onsubmit="return confirm('Confirmer la suppression ?');">
+                            <button type="submit" class="btn btn-sm btn-outline-danger">Supprimer</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
