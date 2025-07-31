@@ -1,57 +1,27 @@
-🌐 Projet Multi-Technologies – Consommation d’une API REST avec FastAPI
-📌 1. Titre du projet
-Consommation d'une API RESTful (FastAPI) à l'aide de trois technologies externes pour le développement d'une application web dynamique.
+Gestion d'Acteurs - Consommation API FastAPI
+Projet de fin de formation démontrant la consommation d'une API REST FastAPI à travers 3 technologies différentes.
+-Description
+Ce projet implémente une interface de gestion d'acteurs (CRUD) en consommant une API FastAPI via trois applications distinctes :
 
-🧩 2. Contexte et problématique
-Dans le cadre de ce projet, l’étudiant doit mettre en œuvre ses compétences en développement web pour consommer une API RESTful développée avec FastAPI.
-L’objectif est de créer trois applications avec trois technologies différentes (ASP.NET Core, PHP, JavaScript/HTML/CSS) qui consomment l’API, en respectant les bonnes pratiques de communication entre systèmes hétérogènes.
+- ASP.NET Core - Application web MVC moderne.
+-PHP - Interface web native avec design élégant.
+-JavaScript - Application frontend dynamique.
 
-L’API expose des données depuis une base NoSQL, et les applications clientes doivent permettre d’interagir efficacement avec ces ressources via des appels HTTP.
+-Start : 
+- Dans le terminal, aller au dossier FastAPI
+cd "C:\Users\mohan\mon-projet-api\PycharmProjects\FastApi02"
 
-🎯 3. Objectifs du projet
-Comprendre la communication client-serveur via REST.
+- Démarrer l'API FastAPI
+uvicorn main:app --reload --port 8001
 
-Consommer une API FastAPI avec trois technologies différentes.
+- Nouveau terminal - Aller au dossier ASP.NET
+cd "C:\Users\mohan\mon-projet-api\AspNetClientFastApi"
+dotnet run
 
-Gérer correctement les requêtes HTTP GET, POST, PUT, DELETE.
-
-Afficher dynamiquement les données récupérées depuis l’API.
-
-Implémenter une gestion des erreurs et du retour d’information API.
-
-🛠️ 4. Travail à réaliser
-Analyse de l’API FastAPI : Étude des endpoints, paramètres et méthodes disponibles.
-
-Choix des technologies : ASP.NET Core, PHP natif, HTML/CSS/JavaScript (tirage au sort).
-
-Développement de 3 interfaces front ou back qui consomment l’API FastAPI.
-
-Requêtes HTTP sécurisées et traitement des réponses JSON.
-
-Tests de fonctionnement, gestion des erreurs, validation de bout en bout.
-
-Documentation claire de l’architecture, du code, et des résultats obtenus.
-
-🖥️ Technologies utilisées
-⚙️ API Backend : FastAPI (Python)
-
-💻 Application 1 : ASP.NET Core MVC
-
-🌍 Application 2 : PHP natif
-
-🎨 Application 3 : HTML / CSS / JavaScript (Vanilla)
+- Nouveau terminal - Aller au dossier PHP
+cd "C:\Users\mohan\mon-projet-api\Client_Php"
+lancez xammp et accéder au fichier index.php.
 
 
 
-Lancement des projets :
- API FastAPI:
-cd PycharmProjects/FastApi02
-uvicorn main:app --reload
 
-ASP.NET Core : dotnet run 
-
-PHP Client :
-cd client_php
-php -S localhost:8000 
-
-Frontend HTML/CSS/JS.
